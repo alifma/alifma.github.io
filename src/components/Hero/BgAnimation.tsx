@@ -1,6 +1,13 @@
 import React from "react";
-const Animation: React.FC = () => (
-  <div style={{ width: "600px", height: "500px" }}>
+import styled from "styled-components";
+
+const Div = styled.div`
+  width: 600px;
+  height: 500px;
+`;
+
+const BgAnimation: React.FC = () => (
+  <Div>
     <svg
       className="BgAnimation__svg"
       viewBox="0 0 602 602"
@@ -358,7 +365,7 @@ const Animation: React.FC = () => (
         </linearGradient>
       </defs>
     </svg>
-  </div>
+  </Div>
 );
 
-export default Animation;
+export default BgAnimation;
