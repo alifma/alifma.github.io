@@ -2,8 +2,7 @@ import React from 'react'
 import { Nav, NavLink, NavbarContainer, Span, NavLogo, NavItems, GitHubButton, ButtonContainer, MobileIcon, MobileMenu, MobileLink } from './NavbarStyled'
 import { Bio } from '../../variant/constants';
 import { useTheme } from 'styled-components';
-import { MenuItem } from '@mui/material';
-import { Face6 } from '@mui/icons-material';
+import { Face6, Menu} from '@mui/icons-material';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -17,7 +16,7 @@ const Navbar: React.FC = () => {
           </a>
         </NavLogo>
         <MobileIcon>
-          <MenuItem onClick={() => {
+          <Menu onClick={() => {
             setIsOpen(!isOpen)
           }} />
         </MobileIcon>

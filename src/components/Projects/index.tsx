@@ -1,17 +1,24 @@
 
 import React from 'react'
-import { useState } from 'react'
 import { Container, Wrapper, Title, Desc, CardContainer, ToggleButtonGroup, ToggleButton, Divider } from './ProjectStyled'
 import ProjectCard from '../Cards/ProjectCard'
 import { projects } from '../../variant/constants'
-import { Project } from '../../types'
+import { Project,  } from '../../types'
 
 type ProjectProps = {
     openModal: {state: boolean; project?: Project};
     setOpenModal: (e: { state: boolean; project?: Project }) => void;
 }
+
+enum ProjectType {
+  All = 'all',
+  Web = 'web app',
+  Android = 'android app',
+  Ml = 'machine learning'
+}
+
 const Projects:React.FC<ProjectProps> = ({openModal,setOpenModal}: ProjectProps) => {
-  const [toggle, setToggle] = useState('all');
+  const [toggle, setToggle] = React.useState<ProjectType>(ProjectType.All);
   return (
     <Container id="projects">
       <Wrapper>
@@ -20,28 +27,28 @@ const Projects:React.FC<ProjectProps> = ({openModal,setOpenModal}: ProjectProps)
           I have worked on a wide range of projects. From web apps to android apps. Here are some of my projects.
         </Desc>
         <ToggleButtonGroup >
-          {toggle === 'all' ?
-            <ToggleButton active value="all" onClick={() => setToggle('all')}>All</ToggleButton>
+          {toggle === ProjectType.All ?
+            <ToggleButton active value={ProjectType.All} onClick={() => setToggle(ProjectType.All)}>All</ToggleButton>
             :
-            <ToggleButton value="all" onClick={() => setToggle('all')}>All</ToggleButton>
+            <ToggleButton value={ProjectType.All} onClick={() => setToggle(ProjectType.All)}>All</ToggleButton>
           }
           <Divider />
-          {toggle === 'web app' ?
-            <ToggleButton active value="web app" onClick={() => setToggle('web app')}>WEB APP'S</ToggleButton>
+          {toggle === ProjectType.Web ?
+            <ToggleButton active value={ProjectType.Web} onClick={() => setToggle(ProjectType.Web)}>WEB APP'S</ToggleButton>
             :
-            <ToggleButton value="web app" onClick={() => setToggle('web app')}>WEB APP'S</ToggleButton>
+            <ToggleButton value={ProjectType.Web} onClick={() => setToggle(ProjectType.Web)}>WEB APP'S</ToggleButton>
           }
           <Divider />
-          {toggle === 'android app' ?
-            <ToggleButton active value="android app" onClick={() => setToggle('android app')}>ANDROID APP'S</ToggleButton>
+          {toggle === ProjectType.Android ?
+            <ToggleButton active value={ProjectType.Android} onClick={() => setToggle(ProjectType.Android)}>ANDROID APP'S</ToggleButton>
             :
-            <ToggleButton value="android app" onClick={() => setToggle('android app')}>ANDROID APP'S</ToggleButton>
+            <ToggleButton value={ProjectType.Android} onClick={() => setToggle(ProjectType.Android)}>ANDROID APP'S</ToggleButton>
           }
           <Divider />
-          {toggle === 'machine learning' ?
-            <ToggleButton active value="machine learning" onClick={() => setToggle('machine learning')}>MACHINE LEARNING</ToggleButton>
+          {toggle === ProjectType.Ml ?
+            <ToggleButton active value={ProjectType.Ml} onClick={() => setToggle(ProjectType.Ml)}>MACHINE LEARNING</ToggleButton>
             :
-            <ToggleButton value="machine learning" onClick={() => setToggle('machine learning')}>MACHINE LEARNING</ToggleButton>
+            <ToggleButton value={ProjectType.Ml} onClick={() => setToggle(ProjectType.Ml)}>MACHINE LEARNING</ToggleButton>
           }
         </ToggleButtonGroup>
         <CardContainer>

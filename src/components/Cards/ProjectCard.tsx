@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Project } from "../../types";
+import { hexToRGBA } from "../../utils/Helper";
 
 const Button = styled.button`
   display: none;
@@ -21,7 +22,7 @@ const Card = styled.div`
   background-color: ${({ theme }) => theme.card};
   cursor: pointer;
   border-radius: 10px;
-  box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: ${({ theme }) => `0 0 12px 4px ${hexToRGBA(theme.black, 0.4 )}`};
   overflow: hidden;
   padding: 26px 20px;
   display: flex;
@@ -30,7 +31,7 @@ const Card = styled.div`
   transition: all 0.5s ease-in-out;
   &:hover {
     transform: translateY(-10px);
-    box-shadow: 0 0 50px 4px rgba(0, 0, 0, 0.6);
+    box-shadow: ${({ theme }) => `0 0 50px 4px ${hexToRGBA(theme.primary, 0.15 )}`};
     filter: brightness(1.1);
   }
   &:hover ${Button} {
@@ -43,7 +44,7 @@ const Image = styled.img`
   height: 180px;
   background-color: ${({ theme }) => theme.white};
   border-radius: 10px;
-  box-shadow: 0 0 16px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: ${({ theme }) => `0 0 16px 2px ${hexToRGBA(theme.black, 0.3 )}`};
 `;
 
 const Tags = styled.div`
@@ -74,7 +75,7 @@ const Details = styled.div`
 const Title = styled.div`
   font-size: 20px;
   font-weight: 600;
-  color: ${({ theme }) => theme.text_secondary};
+  color: ${({ theme }) => theme.textPrimary};
   overflow: hidden;
   display: -webkit-box;
   max-width: 100%;
@@ -88,7 +89,7 @@ const Date = styled.div`
   font-size: 12px;
   margin-left: 2px;
   font-weight: 400;
-  color: ${({ theme }) => theme.text_secondary + 80};
+  color: ${({ theme }) => theme.textSecondary + 80};
   @media only screen and (max-width: 768px) {
     font-size: 10px;
   }
@@ -96,7 +97,7 @@ const Date = styled.div`
 
 const Description = styled.div`
   font-weight: 400;
-  color: ${({ theme }) => theme.text_secondary + 99};
+  color: ${({ theme }) => theme.textSecondary + 99};
   overflow: hidden;
   margin-top: 8px;
   display: -webkit-box;
@@ -117,7 +118,7 @@ const Avatar = styled.img`
   border-radius: 50%;
   margin-left: -10px;
   background-color: ${({ theme }) => theme.white};
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow:  ${({ theme }) => `0 0 10px ${hexToRGBA(theme.black, 0.2)}`};
   border: 3px solid ${({ theme }) => theme.card};
 `;
 

@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { hexToRGBA } from "../../utils/Helper";
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -26,7 +28,7 @@ export const Title = styled.div`
   text-align: center;
   font-weight: 600;
   margin-top: 20px;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.textPrimary};
   @media (max-width: 768px) {
     margin-top: 12px;
     font-size: 32px;
@@ -37,7 +39,7 @@ export const Desc = styled.div`
   font-size: 18px;
   text-align: center;
   max-width: 600px;
-  color: ${({ theme }) => theme.text_secondary};
+  color: ${({ theme }) => theme.textSecondary};
   @media (max-width: 768px) {
     font-size: 16px;
   }
@@ -56,8 +58,7 @@ export const Skill = styled.div`
   width: 100%;
   max-width: 500px;
   background: ${({ theme }) => theme.card};
-  border: 0.1px solid #854ce6;
-  box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
+  box-shadow: ${({ theme }) => `0 0 12px 4px ${hexToRGBA(theme.black, 0.4)}`};
   border-radius: 16px;
   padding: 18px 36px;
   @media (max-width: 768px) {
@@ -68,12 +69,18 @@ export const Skill = styled.div`
     max-width: 330px;
     padding: 10px 36px;
   }
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: ${({ theme }) => `0 0 50px 4px ${hexToRGBA(theme.primary, 0.15 )}`};
+    filter: brightness(1.1);
+  }
+  transition: all 0.5s ease-in-out;
 `;
 
 export const SkillTitle = styled.h2`
   font-size: 28px;
   font-weight: 600;
-  color: ${({ theme }) => theme.text_secondary};
+  color: ${({ theme }) => theme.textPrimary};
   margin-bottom: 20px;
   text-align: center;
 `;
@@ -89,8 +96,8 @@ export const SkillList = styled.div`
 export const SkillItem = styled.div`
   font-size: 16px;
   font-weight: 400;
-  color: ${({ theme }) => theme.text_primary + 80};
-  border: 1px solid ${({ theme }) => theme.text_primary + 80};
+  color: ${({ theme }) => theme.textPrimary + 80};
+  border: 1px solid ${({ theme }) => theme.textPrimary + 80};
   border-radius: 12px;
   padding: 12px 16px;
   display: flex;

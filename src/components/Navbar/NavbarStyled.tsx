@@ -1,12 +1,13 @@
 import { Link as LinkR } from 'react-router-dom';
 import styled from 'styled-components';
+import {hexToRGBA} from "../../utils/Helper"
 
 type MobileMenuProps = {
     isOpen: boolean;
 }
 
 export const Nav = styled.div`
-    background-color: ${({theme}) => theme.card_light};
+    background-color: ${({theme}) => theme.cardLight};
     height: 80px;
     display: flex;
     align-items: center;
@@ -61,12 +62,12 @@ export const NavItems = styled.ul`
 `;
 
 export const NavLink = styled.a`
-    color: ${({ theme }) => theme.text_primary};
+    color: ${({ theme }) => theme.textPrimary};
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     text-decoration: none;
-    :hover {
+    &:hover {
       color: ${({ theme }) => theme.primary};
     }
 
@@ -122,7 +123,7 @@ export const MobileIcon = styled.div`
     transform: translate(-100%, 60%);
     font-size: 1.5rem;
     cursor: pointer;
-    color: ${({ theme }) => theme.text_primary};
+    color: ${({ theme }) => theme.textPrimary};
   }
 `
 
@@ -136,11 +137,11 @@ export const MobileMenu = styled.div<MobileMenuProps>`
     right: 0;
     width: 100%;
     padding: 12px 40px 24px 40px;
-    background: ${({ theme }) => theme.card_light+99};
+    background: ${({ theme }) => theme.cardLight+99};
     transition: all 0.6s ease-in-out;
     transform: ${({ isOpen }) => (isOpen ? 'translateY(0)' : 'translateY(-100%)')};
     border-radius: 0 0 20px 20px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: ${({ theme }) => `0px 0px 10px 0px ${hexToRGBA(theme.black, 0.2)}`};
     opacity: ${({ isOpen }) => (isOpen ? '100%' : '0')};
     z-index: ${({ isOpen }) => (isOpen ? '1000' : '-1000')};
 
@@ -158,7 +159,7 @@ export const MobileMenuItems = styled.ul`
 `
 
 export const MobileMenuLink = styled(LinkR)`
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.textPrimary};
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
@@ -194,7 +195,7 @@ export const MobileMenuButton = styled.a`
 `;
 
 export  const MobileLink = styled.a`
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.textPrimary};
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease-in-out;

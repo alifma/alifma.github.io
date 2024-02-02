@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HeroContainer = styled.div`
-  background: ${({ theme }) => theme.card_light};
+  background: ${({ theme }) => theme.cardLight};
   display: flex;
   justify-content: center;
   position: relative;
@@ -113,7 +113,7 @@ export const Img = styled.img`
 export const Title = styled.div`
   font-weight: 700;
   font-size: 50px;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.textPrimary};
   line-height: 68px;
   @media (max-width: 960px) {
     text-align: center;
@@ -131,7 +131,7 @@ export const TextLoop = styled.div`
   font-size: 32px;
   display: flex;
   gap: 12px;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.textPrimary};
   line-height: 68px;
   @media (max-width: 960px) {
     text-align: center;
@@ -152,7 +152,7 @@ export const SubTitle = styled.div`
   font-size: 20px;
   line-height: 32px;
   margin-bottom: 42px;
-  color: ${({ theme }) => theme.text_primary + 95};
+  color: ${({ theme }) => theme.textPrimary + 95};
 
   @media (max-width: 960px) {
     text-align: center;
@@ -179,17 +179,16 @@ export const ResumeButton = styled.a`
     font-size: 20px;
     font-weight: 600;
     transition: all 0.2s ease-in-out !important;
-    background: hsla(271, 100%, 50%, 1);
-    background: linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-    background: -moz-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-    background: -webkit-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-    box-shadow:  20px 20px 60px #1F2634,
-    -20px -20px 60px #1F2634;
+    background: ${({ theme }) => theme.btnGradStart};
+    background: ${({ theme }) => `linear-gradient(225deg, ${theme.btnGradStart} 0%, ${theme.btnGradStop} 100%)`};
+    background: ${({ theme }) => `-moz-linear-gradient(225deg, ${theme.btnGradStart} 0%, ${theme.btnGradStop} 100%)`};
+    background: ${({ theme }) => `-webkit-linear-gradient(225deg, ${theme.btnGradStart} 0%, ${theme.btnGradStop} 100%)`};
+    box-shadow: ${({ theme }) => `20px 20px 60px ${theme.shadow}`}, ${({ theme }) => `-20px -20px 60px ${theme.shadow}`};
     &:hover {
-        transform: scale(1.05);
-    transition: all 0.4s ease-in-out;
-    box-shadow:  20px 20px 60px #1F2634,
-    filter: brightness(1);
+      transform: scale(1.05);
+      transition: all 0.4s ease-in-out;
+      box-shadow: ${({ theme }) => `20px 20px 60px ${theme.shadow}`},
+      filter: brightness(1);
     }    
     
     

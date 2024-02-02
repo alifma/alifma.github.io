@@ -6,12 +6,11 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import { Bio } from '../../variant/constants';
 import { FooterContainer, FooterWrapper, Logo, Nav, NavLink, SocialMediaIcons, SocialMediaIcon, Copyright } from './FooterStyled';
 
-
 const Footer: React.FC = () =>  {
   return (
     <FooterContainer>
       <FooterWrapper>
-        <Logo>Rishav Chanda</Logo>
+        <Logo>{Bio.name}</Logo>
         <Nav>
           <NavLink href="#about">About</NavLink>
           <NavLink href="#skills">Skills</NavLink>
@@ -26,7 +25,7 @@ const Footer: React.FC = () =>  {
           <SocialMediaIcon href={Bio.insta} target="display"><InstagramIcon /></SocialMediaIcon>
         </SocialMediaIcons>
         <Copyright>
-          &copy; 2023 Rishav Chanda. All rights reserved.
+          &copy; 2024 {Bio.name} forked from <a href={"https://rishavchanda.github.io/"}>Rishav Chanda</a>. All rights reserved.
         </Copyright>
       </FooterWrapper>
     </FooterContainer>

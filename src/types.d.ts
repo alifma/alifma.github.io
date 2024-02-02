@@ -32,6 +32,13 @@ export type Project = {
   member?: ProjectMember[];
 };
 
+export enum ProjectType {
+  All = 'all',
+  Web = 'web app',
+  Android = 'android app',
+  Ml = 'machine learning'
+}
+
 type ProjectMember = {
   name: string;
   img: string;

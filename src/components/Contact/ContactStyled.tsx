@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { hexToRGBA } from "../../utils/Helper";
 
 export const Container = styled.div`
   display: flex;
@@ -32,7 +33,7 @@ export const Title = styled.div`
   text-align: center;
   font-weight: 600;
   margin-top: 20px;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.textPrimary};
   @media (max-width: 768px) {
     margin-top: 12px;
     font-size: 32px;
@@ -43,7 +44,7 @@ export const Desc = styled.div`
   font-size: 18px;
   text-align: center;
   max-width: 600px;
-  color: ${({ theme }) => theme.text_secondary};
+  color: ${({ theme }) => theme.textSecondary};
   @media (max-width: 768px) {
     margin-top: 12px;
     font-size: 16px;
@@ -63,7 +64,7 @@ export const ContactForm = styled.form<ContactFormProps>`
   background-color: ${({ theme }) => theme.card};
   padding: 32px;
   border-radius: 16px;
-  box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
+  box-shadow: ${({ theme }) => `${hexToRGBA(theme.shadowLight, 0.15)} 0px 4px 24px`};
   margin-top: 28px;
   gap: 12px;
 `;
@@ -72,16 +73,16 @@ export const ContactTitle = styled.div`
   font-size: 24px;
   margin-bottom: 6px;
   font-weight: 600;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.textPrimary};
 `;
 
 export const ContactInput = styled.input`
   flex: 1;
   background-color: transparent;
-  border: 1px solid ${({ theme }) => theme.text_secondary};
+  border: 1px solid ${({ theme }) => theme.textSecondary};
   outline: none;
   font-size: 18px;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.textPrimary};
   border-radius: 12px;
   padding: 12px 16px;
   &:focus {
@@ -98,10 +99,10 @@ type ContactInputMessage = {
 export const ContactInputMessage = styled.textarea<ContactInputMessage>`
   flex: 1;
   background-color: transparent;
-  border: 1px solid ${({ theme }) => theme.text_secondary};
+  border: 1px solid ${({ theme }) => theme.textSecondary};
   outline: none;
   font-size: 18px;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.textPrimary};
   border-radius: 12px;
   padding: 12px 16px;
   &:focus {
@@ -113,27 +114,15 @@ export const ContactButton = styled.input`
   width: 100%;
   text-decoration: none;
   text-align: center;
-  background: hsla(271, 100%, 50%, 1);
-  background: linear-gradient(
-    225deg,
-    hsla(271, 100%, 50%, 1) 0%,
-    hsla(294, 100%, 50%, 1) 100%
-  );
-  background: -moz-linear-gradient(
-    225deg,
-    hsla(271, 100%, 50%, 1) 0%,
-    hsla(294, 100%, 50%, 1) 100%
-  );
-  background: -webkit-linear-gradient(
-    225deg,
-    hsla(271, 100%, 50%, 1) 0%,
-    hsla(294, 100%, 50%, 1) 100%
-  );
+  background: ${({ theme }) => theme.btnGradStart};
+  background: ${({ theme }) => `linear-gradient(225deg, ${theme.btnGradStart} 0%, ${theme.btnGradStop} 100%)`};
+  background: ${({ theme }) => `-moz-linear-gradient(225deg, ${theme.btnGradStart} 0%, ${theme.btnGradStop} 100%)`};
+  background: ${({ theme }) => `-webkit-linear-gradient(225deg, ${theme.btnGradStart} 0%, ${theme.btnGradStop} 100%)`};
   padding: 13px 16px;
   margin-top: 2px;
   border-radius: 12px;
   border: none;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.textPrimary};
   font-size: 18px;
   font-weight: 600;
 `;

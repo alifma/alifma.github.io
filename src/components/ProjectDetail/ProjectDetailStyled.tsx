@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {hexToRGBA} from "../../utils/Helper"
 
 export const Container = styled.div`
   width: 100%;
@@ -6,7 +7,7 @@ export const Container = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #000000a7;
+  background-color: ${({ theme }) => theme.black};
   display: flex;
   align-items: top;
   justify-content: center;
@@ -21,7 +22,7 @@ export const Wrapper = styled.div`
   margin: 50px 12px;
   height: min-content;
   background-color: ${({ theme }) => theme.card};
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.textPrimary};
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -31,7 +32,7 @@ export const Wrapper = styled.div`
 export const Title = styled.div`
   font-size: 28px;
   font-weight: 600;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.textPrimary};
   margin: 8px 6px 0px 6px;
   @media only screen and (max-width: 600px) {
     font-size: 24px;
@@ -43,7 +44,7 @@ export const Date = styled.div`
   font-size: 16px;
   margin: 2px 6px;
   font-weight: 400;
-  color: ${({ theme }) => theme.text_secondary};
+  color: ${({ theme }) => theme.textSecondary};
   @media only screen and (max-width: 768px) {
     font-size: 12px;
   }
@@ -52,7 +53,7 @@ export const Date = styled.div`
 export const Desc = styled.div`
   font-size: 16px;
   font-weight: 400;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.textPrimary};
   margin: 8px 6px;
   @media only screen and (max-width: 600px) {
     font-size: 14px;
@@ -65,13 +66,13 @@ export const Image = styled.img`
   object-fit: cover;
   border-radius: 12px;
   margin-top: 30px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: ${({ theme }) => `0px 0px 10px 0px ${hexToRGBA(theme.black, 0.3)}`};
 `;
 
 export const Label = styled.div`
   font-size: 20px;
   font-weight: 600;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.textPrimary};
   margin: 8px 6px;
   @media only screen and (max-width: 600px) {
     font-size: 16px;
@@ -124,7 +125,7 @@ export const MemberImage = styled.img`
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 4px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: ${({ theme }) => `0px 0px 10px 0px ${hexToRGBA(theme.black, 0.3)}`};
   @media only screen and (max-width: 600px) {
     width: 32px;
     height: 32px;
@@ -135,7 +136,7 @@ export const MemberName = styled.div`
   font-size: 16px;
   font-weight: 500;
   width: 200px;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.textPrimary};
   @media only screen and (max-width: 600px) {
     font-size: 14px;
   }
@@ -160,7 +161,7 @@ export const Button = styled.a<ProjectDetailButtonProps>`
   text-align: center;
   font-size: 16px;
   font-weight: 600;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.textPrimary};
   padding: 12px 16px;
   border-radius: 8px;
   background-color: ${({ theme }) => theme.primary};
@@ -168,7 +169,7 @@ export const Button = styled.a<ProjectDetailButtonProps>`
     dull &&
     `
         background-color: ${theme.bgLight};
-        color: ${theme.text_secondary};
+        color: ${theme.textSecondary};
         &:hover {
             background-color: ${({ theme }: { theme: { bg: string } }) =>
               theme.bg + 99};

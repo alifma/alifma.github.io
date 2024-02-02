@@ -15,7 +15,7 @@ export const FooterWrapper = styled.footer`
   gap: 14px;
   align-items: center;
   padding: 1rem;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.textPrimary};
 `;
 
 export const Logo = styled.h1`
@@ -42,7 +42,7 @@ export const Nav = styled.nav`
 `;
 
 export const NavLink = styled.a`
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.textPrimary};
   text-decoration: none;
   font-size: 1.2rem;
   transition: color 0.2s ease-in-out;
@@ -63,7 +63,7 @@ export const SocialMediaIcon = styled.a`
   display: inline-block;
   margin: 0 1rem;
   font-size: 1.5rem;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.textPrimary};
   transition: color 0.2s ease-in-out;
   &:hover {
     color: ${({ theme }) => theme.primary};

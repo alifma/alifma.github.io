@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { hexToRGBA } from "../../utils/Helper";
 
 export const Container = styled.div`
-  background: linear-gradient(
+  background: ${({theme}) => `linear-gradient(
     343.07deg,
-    rgba(132, 59, 206, 0.06) 5.71%,
-    rgba(132, 59, 206, 0) 64.83%
-  );
+    ${hexToRGBA(theme.primary, 0.06)} 5.71%,
+    ${hexToRGBA(theme.primary, 0)} 64.83%,
+  );`}
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,7 +36,7 @@ export const Title = styled.div`
   text-align: center;
   font-weight: 600;
   margin-top: 20px;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.textPrimary};
   @media (max-width: 768px) {
     margin-top: 12px;
     font-size: 32px;
@@ -46,7 +47,7 @@ export const Desc = styled.div`
   font-size: 18px;
   text-align: center;
   max-width: 600px;
-  color: ${({ theme }) => theme.text_secondary};
+  color: ${({ theme }) => theme.textSecondary};
   @media (max-width: 768px) {
     margin-top: 12px;
     font-size: 16px;

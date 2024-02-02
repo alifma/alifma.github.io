@@ -10,6 +10,7 @@ import { educations, experiences } from '../../variant/constants';
 import EducationCard from '../Cards/EducationCard';
 import { Container, Desc, TimelineSection, Title } from './EducationStyled';
 import { Wrapper } from '../Skills/SkillsStyled';
+import { darkTheme } from '../../utils/Themes';
 
 const index: React.FC = () => {
     return (
@@ -27,8 +28,8 @@ const index: React.FC = () => {
                                     <EducationCard education={education}/>
                                 </TimelineContent>
                                 <TimelineSeparator>
-                                    <TimelineDot variant="outlined" color="secondary" />
-                                    {index !== experiences.length  && <TimelineConnector style={{ background: '#854CE6' }} />}
+                                    <TimelineDot variant="outlined" />
+                                    {index !== experiences.length  && <TimelineConnector style={{ background: darkTheme.primary }} />}
                                 </TimelineSeparator>
                             </TimelineItem>
                         ))}

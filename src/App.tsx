@@ -13,6 +13,7 @@ import ProjectDetail from "./components/ProjectDetail";
 import styled from "styled-components";
 import Experience from "./components/Experience/Index";
 import { Project } from "../src/types";
+import { hexToRGBA } from "./utils/Helper";
 
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -21,7 +22,7 @@ const Body = styled.div`
 `
 
 const Wrapper = styled.div`
-  background: linear-gradient(38.73deg, rgba(204, 0, 187, 0.15) 0%, rgba(201, 32, 184, 0) 50%), linear-gradient(141.27deg, rgba(0, 70, 209, 0) 50%, rgba(0, 70, 209, 0.15) 100%);
+  background: ${({theme}) => `linear-gradient(38.73deg, ${hexToRGBA(theme.primary, 0.25)} 0%, ${hexToRGBA(theme.bgGradStart, 0)} 50%), linear-gradient(141.27deg,  ${hexToRGBA(theme.bgGradStop, 0)} 50%,  ${hexToRGBA(theme.bgGradStop, 0.15)} 100%)`};
   width: 100%;
   clip-path: polygon(0 0, 100% 0, 100% 100%,30% 98%, 0 100%);
 `
