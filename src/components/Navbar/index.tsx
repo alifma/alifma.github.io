@@ -12,7 +12,7 @@ import {
   MobileMenu,
   MobileLink,
 } from "./NavbarStyled";
-import { Bio } from "../../variant/constants";
+import { Bio } from "../../variant/Content";
 import { useTheme } from "styled-components";
 import { DarkMode, Face6, GitHub, LightMode, Menu } from "@mui/icons-material";
 
@@ -37,7 +37,7 @@ const Navbar: React.FC<NavbarProps> = (props: NavbarProps) => {
               cursor: "pointer",
             }}
           >
-            <Face6 /> <Span>Portfolio</Span>
+            <Face6 fontSize="large" /> <Span>Portfolio</Span>
           </a>
         </NavLogo>
         <MobileIcon>

@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { Experience } from "../../types";
-import {hexToRGBA} from "../../utils/Helper"
+import { hexToRGBA } from "../../utils/Helper";
 
 const Document = styled.img`
   display: none;
   height: 70px;
   width: fit-content;
-  background-color: ${({theme}) => theme.black};
+  background-color: ${({ theme }) => theme.black};
   border-radius: 10px;
   &:hover {
     cursor: pointer;
@@ -47,7 +47,7 @@ const Card = styled.div`
   gap: 12px;
   transition: all 0.3s ease-in-out;
   &:hover {
-    box-shadow: ${({theme}) => `0px 0px 20px ${hexToRGBA(theme.black, 0.2)}`};
+    box-shadow: ${({ theme }) => `0px 0px 20px ${hexToRGBA(theme.black, 0.2)}`};
     transform: translateY(-5px);
   }
   @media only screen and (max-width: 768px) {
@@ -66,7 +66,8 @@ const Card = styled.div`
   }
 
   border: ${({ theme }) => `0.1px solid ${theme.primary}`};
-  box-shadow: ${({theme}) => `${hexToRGBA(theme.shadowLight, 0.15)} 0px 4px 24px;`}
+  box-shadow: ${({ theme }) =>
+    `${hexToRGBA(theme.shadowLight, 0.15)} 0px 4px 24px;`};
 `;
 
 const Top = styled.div`
@@ -77,7 +78,7 @@ const Top = styled.div`
 
 const Image = styled.img`
   height: 50px;
-  background-color: ${({theme}) => theme.black};
+  background-color: rgba(0, 0, 0, 0);
   border-radius: 10px;
   margin-top: 4px;
   @media only screen and (max-width: 768px) {
@@ -94,7 +95,7 @@ const Body = styled.div`
 const Role = styled.div`
   font-size: 18px;
   font-weight: 600;
-  color: ${({ theme }) => theme.textPrimary };
+  color: ${({ theme }) => theme.textPrimary};
   @media only screen and (max-width: 768px) {
     font-size: 14px;
   }

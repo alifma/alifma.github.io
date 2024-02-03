@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { hexToRGBA } from "../../utils/Helper";
 
 export const Container = styled.div`
-  background: ${({theme}) => `linear-gradient(
+  background: ${({ theme }) => `linear-gradient(
     343.07deg,
     ${hexToRGBA(theme.primary, 0.06)} 5.71%,
     ${hexToRGBA(theme.primary, 0)} 64.83%,

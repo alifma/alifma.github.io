@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {hexToRGBA} from "../../utils/Helper"
+import { hexToRGBA } from "../../utils/Helper";
 
 export const Container = styled.div`
   width: 100%;
@@ -66,7 +66,9 @@ export const Image = styled.img`
   object-fit: cover;
   border-radius: 12px;
   margin-top: 30px;
-  box-shadow: ${({ theme }) => `0px 0px 10px 0px ${hexToRGBA(theme.black, 0.3)}`};
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: ${({ theme }) =>
+    `0px 0px 10px 0px ${hexToRGBA(theme.black, 0.3)}`};
 `;
 
 export const Label = styled.div`
@@ -125,7 +127,8 @@ export const MemberImage = styled.img`
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 4px;
-  box-shadow: ${({ theme }) => `0px 0px 10px 0px ${hexToRGBA(theme.black, 0.3)}`};
+  box-shadow: ${({ theme }) =>
+    `0px 0px 10px 0px ${hexToRGBA(theme.black, 0.3)}`};
   @media only screen and (max-width: 600px) {
     width: 32px;
     height: 32px;

@@ -22,7 +22,7 @@ const Card = styled.div`
   background-color: ${({ theme }) => theme.card};
   cursor: pointer;
   border-radius: 10px;
-  box-shadow: ${({ theme }) => `0 0 12px 4px ${hexToRGBA(theme.black, 0.4 )}`};
+  box-shadow: ${({ theme }) => `0 0 12px 4px ${hexToRGBA(theme.black, 0.4)}`};
   overflow: hidden;
   padding: 26px 20px;
   display: flex;
@@ -31,7 +31,8 @@ const Card = styled.div`
   transition: all 0.5s ease-in-out;
   &:hover {
     transform: translateY(-10px);
-    box-shadow: ${({ theme }) => `0 0 50px 4px ${hexToRGBA(theme.primary, 0.15 )}`};
+    box-shadow: ${({ theme }) =>
+      `0 0 50px 4px ${hexToRGBA(theme.primary, 0.15)}`};
     filter: brightness(1.1);
   }
   &:hover ${Button} {
@@ -42,9 +43,9 @@ const Card = styled.div`
 const Image = styled.img`
   width: 100%;
   height: 180px;
-  background-color: ${({ theme }) => theme.white};
+  background-color: rgba(0, 0, 0, 0);
   border-radius: 10px;
-  box-shadow: ${({ theme }) => `0 0 16px 2px ${hexToRGBA(theme.black, 0.3 )}`};
+  box-shadow: ${({ theme }) => `0 0 16px 2px ${hexToRGBA(theme.black, 0.3)}`};
 `;
 
 const Tags = styled.div`
@@ -118,13 +119,13 @@ const Avatar = styled.img`
   border-radius: 50%;
   margin-left: -10px;
   background-color: ${({ theme }) => theme.white};
-  box-shadow:  ${({ theme }) => `0 0 10px ${hexToRGBA(theme.black, 0.2)}`};
+  box-shadow: ${({ theme }) => `0 0 10px ${hexToRGBA(theme.black, 0.2)}`};
   border: 3px solid ${({ theme }) => theme.card};
 `;
 
 type ProjectCardProps = {
   project: Project;
-  openModal: {state: boolean; project?: Project};
+  openModal: { state: boolean; project?: Project };
   setOpenModal: (e: { state: boolean; project?: Project }) => void;
 };
 const ProjectCards: React.FC<ProjectCardProps> = ({
@@ -141,7 +142,7 @@ const ProjectCards: React.FC<ProjectCardProps> = ({
       </Tags>
       <Details>
         <Title>{project.title}</Title>
-        <Date>{project.date}</Date>
+        {project?.date && <Date>{project.date}</Date>}
         <Description>{project.description}</Description>
       </Details>
       <Members>

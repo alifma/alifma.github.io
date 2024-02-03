@@ -52,9 +52,9 @@ export const Desc = styled.div`
 `;
 
 type ContactFormProps = {
-    ref?: React.MutableRefObject<undefined>
-    onSubmit?: (e: React.FormEvent) => void
-}
+  ref?: React.MutableRefObject<undefined>;
+  onSubmit?: (e: React.FormEvent) => void;
+};
 
 export const ContactForm = styled.form<ContactFormProps>`
   width: 95%;
@@ -64,7 +64,8 @@ export const ContactForm = styled.form<ContactFormProps>`
   background-color: ${({ theme }) => theme.card};
   padding: 32px;
   border-radius: 16px;
-  box-shadow: ${({ theme }) => `${hexToRGBA(theme.shadowLight, 0.15)} 0px 4px 24px`};
+  box-shadow: ${({ theme }) =>
+    `${hexToRGBA(theme.shadowLight, 0.15)} 0px 4px 24px`};
   margin-top: 28px;
   gap: 12px;
 `;
@@ -91,10 +92,10 @@ export const ContactInput = styled.input`
 `;
 
 type ContactInputMessage = {
-    placeholder: string;
-    rows: string;
-    name: string;
-}
+  placeholder: string;
+  rows: string;
+  name: string;
+};
 
 export const ContactInputMessage = styled.textarea<ContactInputMessage>`
   flex: 1;
@@ -115,9 +116,12 @@ export const ContactButton = styled.input`
   text-decoration: none;
   text-align: center;
   background: ${({ theme }) => theme.btnGradStart};
-  background: ${({ theme }) => `linear-gradient(225deg, ${theme.btnGradStart} 0%, ${theme.btnGradStop} 100%)`};
-  background: ${({ theme }) => `-moz-linear-gradient(225deg, ${theme.btnGradStart} 0%, ${theme.btnGradStop} 100%)`};
-  background: ${({ theme }) => `-webkit-linear-gradient(225deg, ${theme.btnGradStart} 0%, ${theme.btnGradStop} 100%)`};
+  background: ${({ theme }) =>
+    `linear-gradient(225deg, ${theme.btnGradStart} 0%, ${theme.btnGradStop} 100%)`};
+  background: ${({ theme }) =>
+    `-moz-linear-gradient(225deg, ${theme.btnGradStart} 0%, ${theme.btnGradStop} 100%)`};
+  background: ${({ theme }) =>
+    `-webkit-linear-gradient(225deg, ${theme.btnGradStart} 0%, ${theme.btnGradStop} 100%)`};
   padding: 13px 16px;
   margin-top: 2px;
   border-radius: 12px;

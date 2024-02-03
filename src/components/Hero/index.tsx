@@ -13,11 +13,14 @@ import {
   SubTitle,
   ResumeButton,
 } from "./HeroStyled.js";
-import HeroImg from "../../variant/images/profile.png";
 import Typewriter from "typewriter-effect";
-import { Bio } from "../../variant/constants.js";
+import { Bio } from "../../variant/Content.js";
 
 const HeroSection: React.FC = () => {
+  React.useEffect(() => {
+    document.title = `${Bio.name} Portfolio`;
+  });
+
   return (
     <div id="about">
       <HeroContainer>
@@ -48,7 +51,7 @@ const HeroSection: React.FC = () => {
           </HeroLeftContainer>
 
           <HeroRightContainer id="Right">
-            <Img src={HeroImg} alt="hero-image" />
+            <Img src={Bio.profile} alt="hero-image" />
           </HeroRightContainer>
         </HeroInnerContainer>
       </HeroContainer>

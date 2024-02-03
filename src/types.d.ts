@@ -10,17 +10,18 @@ export type Biography = {
   twitter?: string;
   facebook?: string;
   email?: string;
-}
+  profile?: string;
+};
 
 export type SkillItem = {
   name: string;
   image: string;
-}
+};
 
 export type SkillsListItem = {
   title: string;
-  skills: SkillItem[]
-}
+  skills: SkillItem[];
+};
 
 export type Experience = {
   id: number;
@@ -46,7 +47,7 @@ export type Education = {
 export type Project = {
   id: number;
   title: string;
-  date: string;
+  date?: string;
   description: string;
   image: string;
   tags: string[];

@@ -45,7 +45,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
             />
             <Image src={project?.image} />
             <Title>{project?.title}</Title>
-            <Date>{project.date}</Date>
+            {project?.date && <Date>{project.date}</Date>}
             <Tags>
               {project?.tags.map((tag: string) => (
                 <Tag>{tag}</Tag>
@@ -89,8 +89,9 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
             </ButtonGroup>
           </Wrapper>
         </Container>
-      ) :
-      <></>}
+      ) : (
+        <></>
+      )}
     </Modal>
   );
 };

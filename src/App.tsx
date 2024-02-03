@@ -1,8 +1,8 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import { darkTheme, lightTheme } from './utils/Themes'
+import { darkTheme, lightTheme } from "./variant/Themes";
 import Navbar from "./components/Navbar";
-import './App.css';
+import "./App.css";
 import Hero from "./components/Hero";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
@@ -18,35 +18,48 @@ const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
   width: 100%;
   overflow-x: hidden;
-`
+`;
 
 const Wrapper = styled.div`
-  background: ${({theme}) => `linear-gradient(38.73deg, ${hexToRGBA(theme.primary, 0.25)} 0%, ${hexToRGBA(theme.bgGradStart, 0)} 50%), linear-gradient(141.27deg,  ${hexToRGBA(theme.bgGradStop, 0)} 50%,  ${hexToRGBA(theme.bgGradStop, 0.15)} 100%)`};
+  background: ${({ theme }) =>
+    `linear-gradient(38.73deg, ${hexToRGBA(
+      theme.primary,
+      0.25
+    )} 0%, ${hexToRGBA(
+      theme.bgGradStart,
+      0
+    )} 50%), linear-gradient(141.27deg,  ${hexToRGBA(
+      theme.bgGradStop,
+      0
+    )} 50%,  ${hexToRGBA(theme.bgGradStop, 0.15)} 100%)`};
   width: 100%;
-  clip-path: polygon(0 0, 100% 0, 100% 100%,30% 98%, 0 100%);
-`
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 98%, 0 100%);
+`;
 
 function App() {
-  const [openModal, setOpenModal] = React.useState<{state: boolean; project?: Project}>({ state: false });
+  const [openModal, setOpenModal] = React.useState<{
+    state: boolean;
+    project?: Project;
+  }>({ state: false });
   const [darkMode, setDarkMode] = React.useState<boolean>(false);
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-        <Navbar setDarkMode={() => setDarkMode(!darkMode)} darkMode={darkMode}/>
-        <Body>
-          <Hero />
-          <Wrapper>
-            <Skills />
-            <Experience />
-          </Wrapper>
-          <Projects openModal={openModal} setOpenModal={setOpenModal} />
-          <Wrapper>
-            <Education />
-          </Wrapper>
-          <Footer/>
-          {openModal.state &&
-            <ProjectDetail openModal={openModal} setOpenModal={setOpenModal} />
-          }
-        </Body>
+      <Navbar setDarkMode={() => setDarkMode(!darkMode)} darkMode={darkMode} />
+      <Body>
+        <Hero />
+        <Wrapper>
+          <Skills />
+          <Experience />
+        </Wrapper>
+        <Projects openModal={openModal} setOpenModal={setOpenModal} />
+        <Wrapper>
+          <Education />
+        </Wrapper>
+        <Footer />
+        {openModal.state && (
+          <ProjectDetail openModal={openModal} setOpenModal={setOpenModal} />
+        )}
+      </Body>
     </ThemeProvider>
   );
 }

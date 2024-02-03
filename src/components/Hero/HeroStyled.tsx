@@ -180,10 +180,15 @@ export const ResumeButton = styled.a`
     font-weight: 600;
     transition: all 0.2s ease-in-out !important;
     background: ${({ theme }) => theme.btnGradStart};
-    background: ${({ theme }) => `linear-gradient(225deg, ${theme.btnGradStart} 0%, ${theme.btnGradStop} 100%)`};
-    background: ${({ theme }) => `-moz-linear-gradient(225deg, ${theme.btnGradStart} 0%, ${theme.btnGradStop} 100%)`};
-    background: ${({ theme }) => `-webkit-linear-gradient(225deg, ${theme.btnGradStart} 0%, ${theme.btnGradStop} 100%)`};
-    box-shadow: ${({ theme }) => `20px 20px 60px ${theme.shadow}`}, ${({ theme }) => `-20px -20px 60px ${theme.shadow}`};
+    background: ${({ theme }) =>
+      `linear-gradient(225deg, ${theme.btnGradStart} 0%, ${theme.btnGradStop} 100%)`};
+    background: ${({ theme }) =>
+      `-moz-linear-gradient(225deg, ${theme.btnGradStart} 0%, ${theme.btnGradStop} 100%)`};
+    background: ${({ theme }) =>
+      `-webkit-linear-gradient(225deg, ${theme.btnGradStart} 0%, ${theme.btnGradStop} 100%)`};
+    box-shadow: ${({ theme }) => `20px 20px 60px ${theme.shadow}`}, ${({
+  theme,
+}) => `-20px -20px 60px ${theme.shadow}`};
     &:hover {
       transform: scale(1.05);
       transition: all 0.4s ease-in-out;

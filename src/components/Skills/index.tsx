@@ -1,5 +1,5 @@
 import React from "react";
-import { skills } from "../../variant/constants";
+import { skills } from "../../variant/Content";
 import {
   Container,
   Desc,

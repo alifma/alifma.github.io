@@ -71,7 +71,8 @@ export const Skill = styled.div`
   }
   &:hover {
     transform: translateY(-10px);
-    box-shadow: ${({ theme }) => `0 0 50px 4px ${hexToRGBA(theme.primary, 0.15 )}`};
+    box-shadow: ${({ theme }) =>
+      `0 0 50px 4px ${hexToRGBA(theme.primary, 0.15)}`};
     filter: brightness(1.1);
   }
   transition: all 0.5s ease-in-out;

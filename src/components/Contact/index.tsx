@@ -1,7 +1,17 @@
 import React from "react";
 import { useRef } from "react";
 import { Snackbar } from "@mui/material";
-import { ContactButton, ContactForm, ContactInput, ContactInputMessage, ContactTitle, Container, Desc, Title, Wrapper } from "./ContactStyled";
+import {
+  ContactButton,
+  ContactForm,
+  ContactInput,
+  ContactInputMessage,
+  ContactTitle,
+  Container,
+  Desc,
+  Title,
+  Wrapper,
+} from "./ContactStyled";
 
 const Contact = () => {
   //hooks
