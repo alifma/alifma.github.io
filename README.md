@@ -15,6 +15,7 @@ Just a ReactJS application customized portfolio from [Rishavchandra](https://git
 - Styled-component
 - Typewriter Effect
 - Vite
+- Gh-Pages
 
 ## Make Your Own
 To Create your own version of this:
@@ -25,6 +26,15 @@ To Create your own version of this:
 5. Adjust the `Theme.ts` to change the theme
 6. Start the development server: `yarn dev`
 7. Open your browser and visit: `http://localhost:5173`
+
+
+## Deployment
+To deploy this repository
+1. Ensure you have github github account, and change it on `vite.config.ts`
+2. Save changes
+3. Run deployment `yarn deploy`
+4. Setup the github repositories to use the branch from `gh-pages`
+5. Wait for it until deployed 
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
