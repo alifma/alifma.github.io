@@ -18,7 +18,7 @@ import { Bio } from "../../variant/Content.js";
 
 const HeroSection: React.FC = () => {
   React.useEffect(() => {
-    document.title = `${Bio.name} Portfolio`;
+    document.title = `${Bio.name}'s Portfolio`;
   });
 
   return (

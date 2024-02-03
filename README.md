@@ -30,11 +30,9 @@ To Create your own version of this:
 
 ## Deployment
 To deploy this repository
-1. Ensure you have github github account, and change it on `vite.config.ts`
-2. Save changes
-3. Run deployment `yarn deploy`
-4. Setup the github repositories to use the branch from `gh-pages`
-5. Wait for it until deployed 
+1. Run deployment `yarn deploy`
+2. Setup the github repositories to use the branch from `gh-pages`
+3. Wait for it until deployed 
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
