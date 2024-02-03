@@ -31,7 +31,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
   const project = openModal?.project;
   return (
     <Modal open={true} onClose={() => setOpenModal({ state: false })}>
-      {project && (
+      {project !== undefined ? (
         <Container>
           <Wrapper>
             <CloseRounded
@@ -89,7 +89,8 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
             </ButtonGroup>
           </Wrapper>
         </Container>
-      )}
+      ) :
+      <></>}
     </Modal>
   );
 };

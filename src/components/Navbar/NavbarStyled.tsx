@@ -84,6 +84,7 @@ export const GitHubButton = styled.a`
   align-items: center;
   height: 70%;
   border-radius: 20px;
+  gap: 8px;
   color: ${({ theme }) => theme.primary};
   cursor: pointer;
   padding: 0 20px;
@@ -91,7 +92,7 @@ export const GitHubButton = styled.a`
   text-decoration: none;
   font-size: 16px;
   transition: all 0.6s ease-in-out;
-    :hover {
+    &:hover {
       background: ${({ theme }) => theme.primary};
       color: ${({ theme }) => theme.white};     
     }
@@ -110,6 +111,7 @@ export const ButtonContainer = styled.div`
   @media screen and (max-width: 768px) {
     display: none;
   }
+  gap: 8px;
 `;
 
 
@@ -144,7 +146,9 @@ export const MobileMenu = styled.div<MobileMenuProps>`
     box-shadow: ${({ theme }) => `0px 0px 10px 0px ${hexToRGBA(theme.black, 0.2)}`};
     opacity: ${({ isOpen }) => (isOpen ? '100%' : '0')};
     z-index: ${({ isOpen }) => (isOpen ? '1000' : '-1000')};
-
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
 `
 
 export const MobileMenuItems = styled.ul`

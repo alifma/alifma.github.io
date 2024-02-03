@@ -190,11 +190,8 @@ export const ResumeButton = styled.a`
       box-shadow: ${({ theme }) => `20px 20px 60px ${theme.shadow}`},
       filter: brightness(1);
     }    
-    
-    
     @media (max-width: 640px) {
         padding: 12px 0;
         font-size: 18px;
     } 
-
 `;

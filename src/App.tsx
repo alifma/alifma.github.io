@@ -1,12 +1,11 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import { darkTheme } from './utils/Themes'
+import { darkTheme, lightTheme } from './utils/Themes'
 import Navbar from "./components/Navbar";
 import './App.css';
 import Hero from "./components/Hero";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Education from "./components/Education";
 import ProjectDetail from "./components/ProjectDetail";
@@ -29,9 +28,10 @@ const Wrapper = styled.div`
 
 function App() {
   const [openModal, setOpenModal] = React.useState<{state: boolean; project?: Project}>({ state: false });
+  const [darkMode, setDarkMode] = React.useState<boolean>(false);
   return (
-    <ThemeProvider theme={darkTheme}>
-        <Navbar/>
+    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+        <Navbar setDarkMode={() => setDarkMode(!darkMode)} darkMode={darkMode}/>
         <Body>
           <Hero />
           <Wrapper>
@@ -41,7 +41,6 @@ function App() {
           <Projects openModal={openModal} setOpenModal={setOpenModal} />
           <Wrapper>
             <Education />
-            <Contact />
           </Wrapper>
           <Footer/>
           {openModal.state &&

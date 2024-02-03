@@ -9,9 +9,10 @@ import TimelineDot from '@mui/lab/TimelineDot';
 import ExperienceCard from '../Cards/ExperienceCard';
 import { experiences } from '../../variant/constants';
 import { Container, Desc, TimelineSection, Title, Wrapper } from './ExperienceStyled';
-import { darkTheme } from '../../utils/Themes';
+import { useTheme } from 'styled-components';
 
 const Experience: React.FC = () => {
+    const theme = useTheme()
     return (
         <Container id="experience">
             <Wrapper>
@@ -21,11 +22,11 @@ const Experience: React.FC = () => {
                 </Desc>
                 <TimelineSection>
                     <Timeline>
-                        {experiences.map((experience, index) => (
+                        {experiences.slice().reverse().map((experience, index) => (
                             <TimelineItem>
                                 <TimelineSeparator>
                                     <TimelineDot variant="outlined" />
-                                    {index !== experiences.length - 1 && <TimelineConnector style={{ background: darkTheme.primary }} />}
+                                    {index !== experiences.length - 1 && <TimelineConnector style={{ background: theme.primary }} />}
                                 </TimelineSeparator>
                                 <TimelineContent sx={{ py: '12px', px: 2 }}>
                                     <ExperienceCard experience={experience}/>

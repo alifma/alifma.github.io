@@ -10,9 +10,10 @@ import { educations, experiences } from '../../variant/constants';
 import EducationCard from '../Cards/EducationCard';
 import { Container, Desc, TimelineSection, Title } from './EducationStyled';
 import { Wrapper } from '../Skills/SkillsStyled';
-import { darkTheme } from '../../utils/Themes';
+import {useTheme} from "styled-components"
 
-const index: React.FC = () => {
+const Education: React.FC = () => {
+    const theme = useTheme();
     return (
         <Container id="education">
             <Wrapper>
@@ -22,14 +23,14 @@ const index: React.FC = () => {
                 </Desc>
                 <TimelineSection>
                     <Timeline>
-                        {educations.map((education, index) => (
+                        {educations.slice().reverse().map((education, index) => (
                             <TimelineItem >
                                 <TimelineContent sx={{ py: '12px', px: 2 }}>
                                     <EducationCard education={education}/>
                                 </TimelineContent>
                                 <TimelineSeparator>
                                     <TimelineDot variant="outlined" />
-                                    {index !== experiences.length  && <TimelineConnector style={{ background: darkTheme.primary }} />}
+                                    {index !== experiences.length  && <TimelineConnector style={{ background: theme.primary }} />}
                                 </TimelineSeparator>
                             </TimelineItem>
                         ))}
@@ -41,4 +42,4 @@ const index: React.FC = () => {
     )
 }
 
-export default index
+export default Education

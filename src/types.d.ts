@@ -1,3 +1,27 @@
+export type Biography = {
+  name: string;
+  fullname: string;
+  roles: string[];
+  description: string;
+  github: string;
+  resume: string;
+  linkedin: string;
+  insta: string;
+  twitter?: string;
+  facebook?: string;
+  email?: string;
+}
+
+export type SkillItem = {
+  name: string;
+  image: string;
+}
+
+export type SkillsListItem = {
+  title: string;
+  skills: SkillItem[]
+}
+
 export type Experience = {
   id: number;
   img: string;
@@ -26,18 +50,11 @@ export type Project = {
   description: string;
   image: string;
   tags: string[];
-  category: string;
+  category: ProjectType;
   github: string;
   webapp: string;
   member?: ProjectMember[];
 };
-
-export enum ProjectType {
-  All = 'all',
-  Web = 'web app',
-  Android = 'android app',
-  Ml = 'machine learning'
-}
 
 type ProjectMember = {
   name: string;

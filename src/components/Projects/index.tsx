@@ -2,19 +2,12 @@
 import React from 'react'
 import { Container, Wrapper, Title, Desc, CardContainer, ToggleButtonGroup, ToggleButton, Divider } from './ProjectStyled'
 import ProjectCard from '../Cards/ProjectCard'
-import { projects } from '../../variant/constants'
-import { Project,  } from '../../types'
+import { projects, ProjectType } from '../../variant/constants'
+import { Project } from '../../types'
 
 type ProjectProps = {
     openModal: {state: boolean; project?: Project};
     setOpenModal: (e: { state: boolean; project?: Project }) => void;
-}
-
-enum ProjectType {
-  All = 'all',
-  Web = 'web app',
-  Android = 'android app',
-  Ml = 'machine learning'
 }
 
 const Projects:React.FC<ProjectProps> = ({openModal,setOpenModal}: ProjectProps) => {
@@ -24,7 +17,7 @@ const Projects:React.FC<ProjectProps> = ({openModal,setOpenModal}: ProjectProps)
       <Wrapper>
         <Title>Projects</Title>
         <Desc>
-          I have worked on a wide range of projects. From web apps to android apps. Here are some of my projects.
+          I have worked on a wide range of projects. Here are some of it.
         </Desc>
         <ToggleButtonGroup >
           {toggle === ProjectType.All ?
@@ -32,12 +25,13 @@ const Projects:React.FC<ProjectProps> = ({openModal,setOpenModal}: ProjectProps)
             :
             <ToggleButton value={ProjectType.All} onClick={() => setToggle(ProjectType.All)}>All</ToggleButton>
           }
-          <Divider />
+         <Divider />
           {toggle === ProjectType.Web ?
             <ToggleButton active value={ProjectType.Web} onClick={() => setToggle(ProjectType.Web)}>WEB APP'S</ToggleButton>
             :
             <ToggleButton value={ProjectType.Web} onClick={() => setToggle(ProjectType.Web)}>WEB APP'S</ToggleButton>
           }
+           {/* 
           <Divider />
           {toggle === ProjectType.Android ?
             <ToggleButton active value={ProjectType.Android} onClick={() => setToggle(ProjectType.Android)}>ANDROID APP'S</ToggleButton>
@@ -49,7 +43,7 @@ const Projects:React.FC<ProjectProps> = ({openModal,setOpenModal}: ProjectProps)
             <ToggleButton active value={ProjectType.Ml} onClick={() => setToggle(ProjectType.Ml)}>MACHINE LEARNING</ToggleButton>
             :
             <ToggleButton value={ProjectType.Ml} onClick={() => setToggle(ProjectType.Ml)}>MACHINE LEARNING</ToggleButton>
-          }
+          } */}
         </ToggleButtonGroup>
         <CardContainer>
           {toggle === 'all' && projects

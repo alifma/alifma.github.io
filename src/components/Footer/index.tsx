@@ -1,16 +1,15 @@
 import React from 'react';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { Bio } from '../../variant/constants';
 import { FooterContainer, FooterWrapper, Logo, Nav, NavLink, SocialMediaIcons, SocialMediaIcon, Copyright } from './FooterStyled';
+import { Email, GitHub } from '@mui/icons-material';
 
 const Footer: React.FC = () =>  {
   return (
     <FooterContainer>
       <FooterWrapper>
-        <Logo>{Bio.name}</Logo>
+        <Logo>{Bio.fullname}</Logo>
         <Nav>
           <NavLink href="#about">About</NavLink>
           <NavLink href="#skills">Skills</NavLink>
@@ -19,13 +18,13 @@ const Footer: React.FC = () =>  {
           <NavLink href="#education">Education</NavLink>
         </Nav>
         <SocialMediaIcons>
-          <SocialMediaIcon href={Bio.facebook} target="display"><FacebookIcon /></SocialMediaIcon>
-          <SocialMediaIcon href={Bio.twitter} target="display"><TwitterIcon /></SocialMediaIcon>
+          <SocialMediaIcon href={Bio.github} target="display"><GitHub /></SocialMediaIcon>
           <SocialMediaIcon href={Bio.linkedin} target="display"><LinkedInIcon /></SocialMediaIcon>
           <SocialMediaIcon href={Bio.insta} target="display"><InstagramIcon /></SocialMediaIcon>
+          <SocialMediaIcon href={`mailto:${Bio.email}`} target="display"><Email /></SocialMediaIcon>
         </SocialMediaIcons>
         <Copyright>
-          &copy; 2024 {Bio.name} forked from <a href={"https://rishavchanda.github.io/"}>Rishav Chanda</a>. All rights reserved.
+          &copy; 2024 {Bio.name} forked from <a href={"https://rishavchanda.github.io/"} style={{color: '854ce6', textDecoration: "none", fontWeight:'600'}}>Rishav Chanda</a>. All rights reserved.
         </Copyright>
       </FooterWrapper>
     </FooterContainer>
