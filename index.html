@@ -1,14 +1,368 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
-  <script type="module" crossorigin src="/assets/index-K0IYVvDa.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-EKNggkG7.css">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alif Maulana — Portfolio</title>
+<meta name="description" content="Alif Maulana (Alifma): Senior Software Engineer. Math educator turned developer who also likes cyber security.">
+<meta name="theme-color" content="#f3eee4">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23181714'/%3E%3Ccircle cx='23' cy='22' r='3.5' fill='%23ff6a3d'/%3E%3Cpath d='M8 9h6v14H8z' fill='%23f3eee4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3eee4; --ink:#181714; --muted:#6b665b; --line:#d8d0be; --card:#fbf8f1; --accent:#ff6a3d;
+  --gigi:#0f8f8a; --kantong:#2f8f4e; --pixseal:#6b4de0; --meetora:#4f46e5; --misc:#b8741a;
+  --sans:"Bricolage Grotesque",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#141311; --ink:#f1ece0; --muted:#9a9384; --line:#2d2a25; --card:#1b1916;
+    --gigi:#35c4bd; --kantong:#52c27a; --pixseal:#9a82ff; --meetora:#8f8aff; --misc:#e0a04a;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141311; --ink:#f1ece0; --muted:#9a9384; --line:#2d2a25; --card:#1b1916;
+  --gigi:#35c4bd; --kantong:#52c27a; --pixseal:#9a82ff; --meetora:#8f8aff; --misc:#e0a04a;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:22px 22px}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
 
-  <body>
-    <div id="root"></div>
-  </body>
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-family:var(--mono);font-size:13px;flex-wrap:wrap;gap:10px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:500}
+.logo i{width:10px;height:10px;border-radius:50%;background:var(--accent);animation:pulse 2.4s ease-in-out infinite}
+.nav-r{display:flex;gap:16px;align-items:center;color:var(--muted);flex-wrap:wrap}
+.nav-r a:hover{color:var(--ink)}
+.tgl{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:2px}
+.tgl button{all:unset;cursor:pointer;padding:3px 11px;border-radius:999px;color:var(--muted)}
+.tgl button:hover{color:var(--ink)}
+.tgl button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.tgl button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.hero{padding:60px 0 50px}
+.tag{font-family:var(--mono);font-size:13px;color:var(--muted);margin-bottom:16px}
+h1{font-size:clamp(44px,10vw,112px);line-height:.94;letter-spacing:-.045em;font-weight:800}
+h1 .dot,h1 .hl{color:var(--accent)}
+.role{margin-top:18px;font-size:clamp(18px,2.6vw,24px);font-weight:600;letter-spacing:-.02em}
+.open{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12.5px;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:4px 12px;margin-bottom:18px}
+.open i{width:8px;height:8px;border-radius:50%;background:var(--kantong);animation:pulse 2.4s ease-in-out infinite}
+.lead b{color:var(--ink);font-weight:600}
+.lead{max-width:600px;margin-top:14px;color:var(--muted);font-size:clamp(16px,2vw,19px)}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px;font-family:var(--mono);font-size:13px}
+.cta a{border:1px solid var(--line);border-radius:999px;padding:8px 16px;background:var(--card);transition:.2s}
+.cta a:hover{border-color:var(--accent);color:var(--accent)}
+.cta a.pri{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.cta a.pri:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+
+.sh{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--ink);padding:14px 0 24px;font-family:var(--mono);font-size:13px;margin-top:20px}
+.sh span:last-child{color:var(--muted)}
+section{padding-bottom:50px}
+
+/* about */
+.about{display:grid;grid-template-columns:1.5fr 1fr;gap:30px}
+.about p{color:var(--muted);font-size:17px}
+.about p+p{margin-top:14px}
+.about b{color:var(--ink);font-weight:600}
+.facts{list-style:none;padding:0;display:grid;gap:10px;font-family:var(--mono);font-size:13px;align-content:start}
+.facts li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.facts small{display:block;color:var(--muted);font-size:11.5px}
+
+/* timeline */
+.tl{display:grid}
+.row{display:grid;grid-template-columns:170px 1fr;gap:24px;padding:20px 0;border-top:1px solid var(--line)}
+.row:first-child{border-top:0;padding-top:0}
+.when{font-family:var(--mono);font-size:12.5px;color:var(--muted);padding-top:4px}
+.row h3{font-size:21px;letter-spacing:-.025em;line-height:1.2}
+.row h3 span{color:var(--muted);font-weight:400}
+.row p{color:var(--muted);margin-top:8px;font-size:15.5px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;padding:0}
+.chips li{list-style:none;font-family:var(--mono);font-size:11.5px;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--muted)}
+.now{display:inline-block;font-family:var(--mono);font-size:11px;background:var(--accent);color:#fff;border-radius:999px;padding:1px 9px;margin-left:8px;vertical-align:middle}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sk{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.sk h3{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--accent);margin-bottom:10px;letter-spacing:.04em;text-transform:uppercase}
+.sk .chips{margin-top:0}
+
+/* projects */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.card{--c:var(--misc);background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:10px;transition:transform .25s,border-color .25s,box-shadow .25s;position:relative}
+a.card:hover{transform:translateY(-5px);border-color:var(--c);box-shadow:0 16px 36px -22px var(--c)}
+.card.m{--c:var(--meetora)}
+.card.g{--c:var(--gigi)}.card.k{--c:var(--kantong)}.card.p{--c:var(--pixseal)}
+.card .num{font-family:var(--mono);font-size:12px;color:var(--c)}
+.card h3{font-size:24px;letter-spacing:-.03em;line-height:1.1}
+.card p{color:var(--muted);font-size:15px}
+.go{margin-top:auto;padding-top:8px;font-family:var(--mono);font-size:13px;color:var(--c);display:flex;justify-content:space-between;gap:10px}
+.locked{border-style:dashed}
+
+/* two col lists */
+.two{display:grid;grid-template-columns:repeat(2,1fr);gap:30px}
+.two h3{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--accent);letter-spacing:.04em;text-transform:uppercase;margin-bottom:12px}
+.list{list-style:none;padding:0;display:grid;gap:12px}
+.list li{border-left:2px solid var(--line);padding-left:14px;font-size:15.5px}
+.list li small{display:block;color:var(--muted);font-size:13.5px}
+.list a:hover{color:var(--accent)}
+
+/* contact */
+.cnote{max-width:600px;color:var(--muted);font-size:17px;margin:-8px 0 22px}
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.contact a{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;font-family:var(--mono);font-size:13px;transition:.2s;display:flex;flex-direction:column;gap:2px;overflow-wrap:anywhere}
+.contact a small{color:var(--muted);font-size:11.5px}
+.contact a:hover{border-color:var(--accent);transform:translateY(-3px)}
+
+
+@keyframes pulse{50%{transform:scale(1.5);opacity:.5}}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.hero>*{animation:rise .7s both}
+.tag{margin-bottom:10px}
+.hero>*:nth-child(2){animation-delay:.07s}.hero>*:nth-child(3){animation-delay:.14s}.hero>*:nth-child(4){animation-delay:.21s}.hero>*:nth-child(5){animation-delay:.28s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+@media (max-width:860px){
+  .about,.two,.grid{grid-template-columns:1fr}
+  .skills{grid-template-columns:1fr 1fr}
+  .row{grid-template-columns:1fr;gap:6px}
+}
+@media (max-width:520px){.skills{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="logo" href="/"><i></i>domainnya.my.id</a>
+    <div class="nav-r">
+      <a href="#about">about</a><a href="#experience">experience</a><a href="#skills">skills</a><a href="#projects">projects</a><a href="#education">education</a><a href="#contact">contact</a>
+      <span class="tgl" role="group" aria-label="Theme"><button type="button" data-t="light">light</button><button type="button" data-t="dark">dark</button></span>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <p class="tag">// hi, I'm Alifma</p>
+    <p class="open"><i></i>Open for side projects &amp; research</p>
+    <h1><span class="hl">Alif Ma</span>ulana<span class="dot">.</span></h1>
+    <p class="role">Senior Software Engineer</p>
+    <p class="lead"><b><span id="yrs">5+</span> years</b> of building software with React and Golang, and leading dev teams. I used to teach math, so I like explaining things. Lately I've been getting into cyber security.</p>
+    <div class="cta">
+      <a class="pri" href="#projects">See my work</a>
+      <a href="mailto:alifmaulana26@gmail.com">Email me ↗</a>
+      <a href="https://github.com/alifma" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/alifma" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="sh"><span>ABOUT</span><span>01</span></div>
+    <div class="about">
+      <div>
+        <p>I started out as a <b>mathematics education</b> graduate, but becoming a programmer was always the dream. College research competitions pushed me into building apps with my team, and an intensive bootcamp turned it into a career.</p>
+        <p>Today I'm a <b>Senior Software Engineer</b> at Citra Digital Lintas. I lead a team, talk to clients, and keep the CI/CD and servers running. On the side I'm doing a Master's in IT, choosing a concentration in <b>cyber security</b> (forensics and analytics) because it's something I'm genuinely curious about. Still learning, not an expert.</p>
+        <p>I take risks, stay organized, like a bit of competition, and enjoy sharing what I learn with others.</p>
+      </div>
+      <ul class="facts">
+        <li><small>based in</small>Jakarta, Indonesia</li>
+        <li><small>languages</small>Indonesian (native) · English (professional)</li>
+        <li><small>currently</small>Master's in IT, learning cyber security</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sh"><span>EXPERIENCE</span><span>02</span></div>
+    <div class="tl">
+      <div class="row">
+        <div class="when">Nov 2024 – now</div>
+        <div>
+          <h3>Senior Software Engineer <span>· Citra Digital Lintas</span><em class="now">now</em></h3>
+          <p>Lead a development team, build web apps with React and Golang, work directly with clients, and manage technical operations including CI/CD and server infrastructure.</p>
+          <ul class="chips"><li>React</li><li>Golang</li><li>CI/CD</li><li>Team lead</li></ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">Apr 2021 – Nov 2024</div>
+        <div>
+          <h3>Software Engineer <span>· Citra Digital Lintas</span></h3>
+          <p>Built web apps with NextJS and backend services with Golang. Also helped with server maintenance, CI/CD automation, and deployment.</p>
+          <ul class="chips"><li>NextJS</li><li>Golang</li><li>Deployment</li></ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">Sep – Nov 2024</div>
+        <div>
+          <h3>Flutter Developer <span>· BNI Sekuritas</span></h3>
+          <p>On-site mobile development in Jakarta.</p>
+          <ul class="chips"><li>Flutter</li></ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">Jun 2020 – Apr 2021</div>
+        <div>
+          <h3>Volunteer Frontend Instructor <span>· Progate</span></h3>
+          <p>Helped participants of the Digital Talent Scholarship Web program and Ready Set Code with their HTML, CSS, and JavaScript questions. Over 4,800 participants across the events.</p>
+          <ul class="chips"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Mentoring</li></ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">Jul – Dec 2020</div>
+        <div>
+          <h3>Mathematics Teacher <span>· SMK Nurul Huda Baros</span></h3>
+          <p>Taught 7 classes in Grade XI and got to be a homeroom teacher, all online through Google Classroom during Covid-19.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">Sep 2017 – Dec 2019</div>
+        <div>
+          <h3>Laboratory Assistant <span>· Universitas Sultan Ageng Tirtayasa</span></h3>
+          <p>Helped lecturers teach JavaScript and Java. Built apps with the lab team for national-level competitions (see Awards).</p>
+          <ul class="chips"><li>JavaScript</li><li>Java</li><li>Research</li></ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">Aug – Sep 2018</div>
+        <div>
+          <h3>Mathematics Teacher Intern <span>· Tarlac Agricultural University, Philippines</span></h3>
+          <p>Taught Grade 10 math for a month through the SEAMEO SEA-Teacher exchange (Batch 6). My first time abroad. I wrote about it on a <a href="https://journalifma.wordpress.com/" target="_blank" rel="noopener" style="text-decoration:underline">blog</a> that won Best Blog of the batch.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">Jan – Mar 2015</div>
+        <div>
+          <h3>IT Staff <span>· Pandeglang Library &amp; Archives Office</span></h3>
+          <p>Managed the office network, installed wireless access points, fixed computer problems, and helped digitize old archive documents.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sh"><span>SKILLS</span><span>03</span></div>
+    <div class="skills">
+      <div class="sk"><h3>Languages</h3><ul class="chips"><li>JavaScript</li><li>Golang</li><li>PHP</li><li>Python</li><li>Kotlin</li></ul></div>
+      <div class="sk"><h3>Frontend</h3><ul class="chips"><li>React</li><li>NextJS</li><li>Vue</li><li>Material UI</li><li>Ant Design</li></ul></div>
+      <div class="sk"><h3>Backend</h3><ul class="chips"><li>Golang</li><li>Node.js</li><li>Express</li></ul></div>
+      <div class="sk"><h3>Mobile</h3><ul class="chips"><li>Flutter</li><li>React Native</li><li>Android</li></ul></div>
+      <div class="sk"><h3>Browser engineering</h3><ul class="chips"><li>Chromium</li><li>Custom browser builds</li></ul></div>
+      <div class="sk"><h3>Database</h3><ul class="chips"><li>PostgreSQL</li><li>MySQL</li><li>SQL Server</li></ul></div>
+      <div class="sk"><h3>DevOps &amp; tools</h3><ul class="chips"><li>CI/CD</li><li>Docker</li><li>Google Cloud</li><li>Git</li><li>Postman</li><li>Figma</li></ul></div>
+      <div class="sk"><h3>AR / 3D</h3><ul class="chips"><li>Unity</li><li>Vuforia</li></ul></div>
+      <div class="sk"><h3>Learning: cyber security</h3><ul class="chips"><li>OSINT</li><li>Digital forensics</li><li>Incident response</li><li>Ethical hacking</li></ul></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="sh"><span>PROJECTS</span><span>04</span></div>
+    <div class="grid">
+      <a class="card g" href="https://gigi.domainnya.my.id/" target="_blank" rel="noopener">
+        <span class="num">live</span><h3>Gigi</h3>
+        <p>Ordering site for dentists to get dental molds. Standard or custom orders.</p>
+        <div class="go"><span>gigi.domainnya.my.id</span><b>↗</b></div>
+      </a>
+      <a class="card k" href="https://kantong.domainnya.my.id/" target="_blank" rel="noopener">
+        <span class="num">live</span><h3>Kantong</h3>
+        <p>Personal wallet app: log transactions, set budgets, see where the money goes.</p>
+        <div class="go"><span>kantong.domainnya.my.id</span><b>↗</b></div>
+      </a>
+      <a class="card p" href="https://pixseal.domainnya.my.id/" target="_blank" rel="noopener">
+        <span class="num">live</span><h3>PixSeal</h3>
+        <p>My Master's thesis project: a tool that hides an invisible watermark inside an image to help prove it's yours, without changing how it looks. Privacy comes first. Images are never saved on the server. You upload, it signs the image, you get it back, and nothing stays behind.</p>
+        <div class="go"><span>pixseal.domainnya.my.id</span><b>↗</b></div>
+      </a>
+      <a class="card m" href="https://meetora.id" target="_blank" rel="noopener">
+        <span class="num">live · team project</span><h3>Meetora</h3>
+        <p>Part of Meetora, a modern video meeting platform built for Indonesian small businesses (UMKM).</p>
+        <div class="go"><span>meetora.id</span><b>↗</b></div>
+      </a>
+      <div class="card locked">
+        <span class="num">confidential</span><h3>Custom Chromium browser</h3>
+        <p>Built a custom Chromium-based browser for a client I can't name. Details stay private.</p>
+        <div class="go"><span>under NDA</span><b>🔒</b></div>
+      </div>
+      <a class="card" href="https://bit.ly/AplikasiSEAD" target="_blank" rel="noopener">
+        <span class="num">2019 · research</span><h3>SEAD</h3>
+        <p>Village budget evaluation system (Sistem Evaluasi Anggaran Dana Desa). 2nd Runner Up at KRISNA 3.</p>
+        <div class="go"><span>view</span><b>↗</b></div>
+      </a>
+      <a class="card" href="https://bit.ly/AplikasiARTIC" target="_blank" rel="noopener">
+        <span class="num">2019 · patent</span><h3>ARTIC</h3>
+        <p>Augmented Reality Mathematics learning media with a guide and a marker cube. 3rd place, national learning media contest.</p>
+        <div class="go"><span>view</span><b>↗</b></div>
+      </a>
+      <a class="card" href="https://bit.ly/AplikasiAKAR" target="_blank" rel="noopener">
+        <span class="num">2019 · award</span><h3>Akar Tajwid</h3>
+        <p>Al-Quran tajwid app that won first place in an Al-Quran app design competition.</p>
+        <div class="go"><span>view</span><b>↗</b></div>
+      </a>
+      <a class="card" href="https://alifma.github.io/QRGen/" target="_blank" rel="noopener">
+        <span class="num">small tools</span><h3>QRGen &amp; Drive Embed</h3>
+        <p>A static QR code generator, and a converter from Google Drive links to embeddable URLs.</p>
+        <div class="go"><span>alifma.github.io</span><b>↗</b></div>
+      </a>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="sh"><span>EDUCATION &amp; RECOGNITION</span><span>05</span></div>
+    <div class="two">
+      <div>
+        <h3>Education</h3>
+        <ul class="list">
+          <li><strong>Master's, Information Technology</strong><small>Universitas Pamulang · Jul 2025 – Jun 2027 (ongoing)<br>Concentration: Cyber Security, cyber forensics &amp; analytics</small></li>
+          <li><strong>Bachelor's, Mathematics Teacher Education</strong><small>Universitas Sultan Ageng Tirtayasa · 2016 – 2020 · GPA 3.66</small></li>
+          <li><strong>Full Stack Web Developer bootcamp</strong><small>Arkademy · Dec 2020 – Mar 2021</small></li>
+          <li><strong>Vocational High School, Computer Systems Networking &amp; Telecom</strong><small>SMK Negeri 1 Pandeglang · 2013 – 2016</small></li>
+        </ul>
+        <h3 style="margin-top:28px">Learning on the side</h3>
+        <ul class="list">
+          <li><strong>Jagoan Siber</strong><small>Online classes: OSINT in Cyber Security · Digital Forensics &amp; Incident Response · Beginner Ethical Hacking</small></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Patents</h3>
+        <ul class="list">
+          <li><strong>ARTIC</strong> (Augmented Reality Mathematics)<small>ID 000179698 · Nov 2019</small></li>
+          <li><strong>BARU STAR</strong> (Bangun Ruang Sisi Datar dengan Augmented Reality)<small>ID 000154363 · Jun 2018</small></li>
+        </ul>
+        <h3 style="margin-top:28px">Awards</h3>
+        <ul class="list">
+          <li><strong>1st Winner</strong>, Al-Quran Application Design Competition<small>Akar Tajwid · Piala Rektor Untirta</small></li>
+          <li><strong>2nd Runner Up</strong>, KRISNA 3 national student research<small>SEAD · 2019</small></li>
+          <li><strong>3rd Winner</strong>, national learning media innovation contest<small>ARTIC · 2019</small></li>
+          <li><strong>Best Blog</strong>, SEA-Teacher Batch 6<small>SEAMEO · Nov 2018</small></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="sh"><span>CONTACT</span><span>06</span></div>
+    <p class="cnote">Need a hand with a web app, backend, or something in between? I'm also open for research and journal collaborations. Just send me an email and tell me what you have in mind.</p>
+    <div class="contact">
+      <a href="mailto:alifmaulana26@gmail.com"><small>email</small>alifmaulana26@gmail.com</a>
+      <a href="https://github.com/alifma" target="_blank" rel="noopener"><small>github</small>@alifma ↗</a>
+      <a href="https://www.linkedin.com/in/alifma" target="_blank" rel="noopener"><small>linkedin</small>/in/alifma ↗</a>
+      <a href="https://orcid.org/0000-0002-4778-5402" target="_blank" rel="noopener"><small>orcid</small>0000-0002-4778-5402 ↗</a>
+      <a href="https://www.instagram.com/alifma26" target="_blank" rel="noopener"><small>instagram</small>@alifma26 ↗</a>
+    </div>
+  </section>
+
+</div>
+<script>
+(function(){
+  var r=document.documentElement,bs=document.querySelectorAll('.tgl button');
+  function cur(){return r.dataset.theme||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light')}
+  function sync(){var c=cur();bs.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.t===c)})}
+  try{var s=localStorage.getItem('theme');if(s)r.dataset.theme=s}catch(e){}
+  bs.forEach(function(b){b.onclick=function(){r.dataset.theme=b.dataset.t;try{localStorage.setItem('theme',b.dataset.t)}catch(e){}sync()}});
+  sync();
+  var y=document.getElementById('yrs');if(y){var n=new Date(),v=n.getFullYear()-2021-(n.getMonth()<3?1:0);if(v>0)y.textContent=v+'+'}
+})();
+</script>
+</body>
 </html>
